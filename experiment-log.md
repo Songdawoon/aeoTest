@@ -30,11 +30,25 @@ Queries tested:
 
 Observed competing sources included IDC.KR, Webbird, Adall, WintzLab, Edstudio, 모두의사이트, Infoly, Magneticsoft and others. The target Vercel page was not returned as a source.
 
+### Search Console status captured by site owner
+- Google status: `URL이 Google에 등록되어 있지 않음`
+- Indexing state: `크롤링됨 - 현재 색인이 생성되지 않음`
+- Last crawl: 2026-08-27 18:00:30 KST
+- Crawler: Googlebot Smartphone
+- Crawl allowed: Yes
+- Page fetch: Successful
+- Indexing allowed: Yes
+- User-declared canonical: https://aeo-test-hazel.vercel.app/
+- Google-selected canonical: Inspected URL
+- Sitemap: https://aeo-test-hazel.vercel.app/sitemap.xml
+
 ### Day 1 status
-- Google Search Console crawl eligibility: confirmed on Day 0
+- Google has successfully crawled the page
+- Technical crawl/index eligibility checks: passed
+- Google chose not to index the page yet
 - Public search discovery: not yet observed
 - ChatGPT/web-search source retrieval: not yet observed
 - AI citation: 0 observed
 
 ### Interpretation
-This is not yet a content-quality failure. The page has not become discoverable in the public search indexes available to the test. Re-test after the index transitions from requested/discovered to indexed.
+This has progressed from discovery to an actual Google crawl. The current bottleneck is no longer crawling or canonical configuration; it is Google's decision not to include the page in the index yet. Because the page was first crawled less than one day ago, continue observing before changing the page. If the status remains `Crawled - currently not indexed` for several days, test whether stronger original data, clearer publisher/author identity, and additional internal/external references improve indexability.
