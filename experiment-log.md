@@ -18,7 +18,7 @@ Target URL: https://aeo-test-hazel.vercel.app/
 ### Discovery checks
 - Exact domain search: no public search result found
 - `site:aeo-test-hazel.vercel.app`: no result found in available web-search indexes
-- Exact experiment phrase `AI Citation Experiment #001`: target page not found
+- `AI Citation Experiment #001`: target page not found
 - Domain-restricted queries for `2026 홈페이지 제작비용`, `회사소개 홈페이지 제작비용`, and `5~10페이지 기업 홈페이지 제작비용`: target page not found
 
 ### Generic-query citation/search baseline
@@ -51,27 +51,22 @@ Observed competing sources included IDC.KR, Webbird, Adall, WintzLab, Edstudio, 
 - AI citation: 0 observed
 
 ### Interpretation
-This has progressed from discovery to an actual Google crawl. The current bottleneck is no longer crawling or canonical configuration; it is Google's decision not to include the page in the index yet.
+The current bottleneck is no longer crawling or canonical configuration; it is Google's decision not to include the page in the index yet.
 
 ## V2 — 2026-09-07
-### Variable changed: content depth / source breadth only
-To avoid mixing too many variables at once, the site remains a single primary HTML page. We changed the evidence quality and depth before testing site-page-count effects.
+### Content-quality experiment
+- Source sample expanded from 5 to 30 publicly accessible pricing/guidance sources
+- Each source now includes the original source URL
+- Raw dataset published as `website-cost-dataset-2026.csv`
+- Main page updated to describe 30-source methodology and limitations
+- Article + Dataset structured data updated to reflect the larger source set
+- `dateModified` updated to 2026-09-07
+- sitemap `lastmod` updated to 2026-09-07
+- Vercel production deployment status: success
 
-Changes:
-- Expanded source set from 5 to 30 public sources
-- 24 direct vendor pricing sources + 6 vendor/market guides
-- Added the original source URL beside every row
-- Added `website-cost-dataset-2026.csv` as downloadable raw data
-- Added collection date, source type, scope, price, notes, methodology and limitations
-- Updated Article/Dataset structured data and modified date
-- Kept the canonical URL unchanged
+### Experimental intent
+This V2 changes content depth/original aggregation while keeping the same production URL and one-page site structure. Page-count expansion is intentionally deferred so that any indexing change can be more cleanly associated with the stronger dataset/content signal.
 
-### Hypothesis
-If the reason for `Crawled - currently not indexed` is insufficient originality/value rather than a technical issue, increasing source breadth, transparency and reusability of the dataset may cause Google to re-evaluate the page after the next crawl.
-
-### Next checkpoint
-1. Confirm Vercel deployed commit `7aff101849ce21450d995f1add1546607afa1ea6`
-2. Request/observe a new crawl
-3. Record new last-crawl time and coverage state
-4. Do not add extra site pages until this V2 result is measured
-5. If still not indexed, test a multi-page topical structure as V3
+### Public search check after V2 deploy
+- `site:aeo-test-hazel.vercel.app` / exact-domain style public searches still returned no target result immediately after deployment
+- This is expected immediately after a content update; next meaningful checkpoint is after Google recrawls the revised page
