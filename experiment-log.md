@@ -51,4 +51,27 @@ Observed competing sources included IDC.KR, Webbird, Adall, WintzLab, Edstudio, 
 - AI citation: 0 observed
 
 ### Interpretation
-This has progressed from discovery to an actual Google crawl. The current bottleneck is no longer crawling or canonical configuration; it is Google's decision not to include the page in the index yet. Because the page was first crawled less than one day ago, continue observing before changing the page. If the status remains `Crawled - currently not indexed` for several days, test whether stronger original data, clearer publisher/author identity, and additional internal/external references improve indexability.
+This has progressed from discovery to an actual Google crawl. The current bottleneck is no longer crawling or canonical configuration; it is Google's decision not to include the page in the index yet.
+
+## V2 — 2026-09-07
+### Variable changed: content depth / source breadth only
+To avoid mixing too many variables at once, the site remains a single primary HTML page. We changed the evidence quality and depth before testing site-page-count effects.
+
+Changes:
+- Expanded source set from 5 to 30 public sources
+- 24 direct vendor pricing sources + 6 vendor/market guides
+- Added the original source URL beside every row
+- Added `website-cost-dataset-2026.csv` as downloadable raw data
+- Added collection date, source type, scope, price, notes, methodology and limitations
+- Updated Article/Dataset structured data and modified date
+- Kept the canonical URL unchanged
+
+### Hypothesis
+If the reason for `Crawled - currently not indexed` is insufficient originality/value rather than a technical issue, increasing source breadth, transparency and reusability of the dataset may cause Google to re-evaluate the page after the next crawl.
+
+### Next checkpoint
+1. Confirm Vercel deployed commit `7aff101849ce21450d995f1add1546607afa1ea6`
+2. Request/observe a new crawl
+3. Record new last-crawl time and coverage state
+4. Do not add extra site pages until this V2 result is measured
+5. If still not indexed, test a multi-page topical structure as V3
